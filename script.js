@@ -844,3 +844,41 @@ reviewBtn.addEventListener('click', () => {
         reviewContainer.scrollIntoView({ behavior: 'smooth' });
     }
 });
+
+// Keyboard Navigation
+document.addEventListener('keydown', (e) => {
+    // Handle Enter key for continuing
+    if (e.key === 'Enter') {
+        if (startScreen.classList.contains('active')) {
+            startBtn.click();
+        } else if (quizScreen.classList.contains('active')) {
+            if (!nextBtn.classList.contains('hidden') && !nextBtn.disabled) {
+                nextBtn.click();
+            } else if (!submitBtn.classList.contains('hidden') && !submitBtn.disabled) {
+                submitBtn.click();
+            }
+        } else if (resultsScreen.classList.contains('active') && reviewContainer.classList.contains('hidden')) {
+            // Optional: prevent accidentally restarting immediately unless they really mean it
+            // Could link to reviewBtn or restartBtn, but often we just do nothing or restart
+        }
+    }
+    
+    // Handle option selection via A,B,C,D or 1,2,3,4
+    if (quizScreen.classList.contains('active')) {
+        const key = e.key.toLowerCase();
+        const optionKeys = ['a', 'b', 'c', 'd', '1', '2', '3', '4'];
+        
+        if (optionKeys.includes(key)) {
+            let index = -1;
+            if (key === 'a' || key === '1') index = 0;
+            if (key === 'b' || key === '2') index = 1;
+            if (key === 'c' || key === '3') index = 2;
+            if (key === 'd' || key === '4') index = 3;
+            
+            const buttons = optionsContainer.querySelectorAll('.option-btn');
+            if (index >= 0 && index < buttons.length) {
+                buttons[index].click();
+            }
+        }
+    }
+});
