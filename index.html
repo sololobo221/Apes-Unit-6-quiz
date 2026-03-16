@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APES Unit 6 Review: Energy Resources & Consumption</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="quiz-container">
+        <header>
+            <h1>APES Unit 6 Review</h1>
+            <p>Energy Resources & Consumption</p>
+        </header>
+
+        <main>
+            <!-- Start Screen -->
+            <div id="start-screen" class="screen active">
+                <h2>Ready to test your knowledge?</h2>
+                <p>This quiz contains exactly 60 AP-style multiple-choice questions covering fossil fuels, nuclear energy, renewables, and conservation.</p>
+                <div class="info-badges">
+                    <span>60 Questions</span>
+                    <span>Randomized</span>
+                    <span>Full Explanations</span>
+                </div>
+                <button id="start-btn" class="primary-btn">Start Quiz</button>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+                <div class="question-header">
+                    <span id="question-tracker">Question 1 / 60</span>
+                </div>
+                <div id="question-content">
+                    <h3 id="question-text">Question goes here?</h3>
+                    <div id="options-container">
+                        <!-- Options injected dynamically by JS -->
+                    </div>
+                </div>
+                <div class="quiz-controls">
+                    <button id="next-btn" class="primary-btn" disabled>Next Question</button>
+                    <button id="submit-btn" class="primary-btn hidden">Submit Quiz</button>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <h2>Quiz Complete!</h2>
+                <div class="score-card">
+                    <h3>Your Score</h3>
+                    <div id="score-display">0 / 60</div>
+                    <p id="score-message">Good effort!</p>
+                </div>
+                <button id="review-btn" class="secondary-btn">Review Answers</button>
+                <button id="restart-btn" class="primary-btn">Retake Quiz</button>
+
+                <div id="review-container" class="hidden">
+                    <h3>Detailed Review</h3>
+                    <div id="review-list">
+                        <!-- Review items injected dynamically by JS -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
