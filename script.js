@@ -742,10 +742,10 @@ function loadQuestion() {
     questionText.textContent = qt.question;
     questionTracker.textContent = `Question ${currentQuestionIndex + 1} / ${questionsData.length}`;
     progressBar.style.width = `${((currentQuestionIndex) / questionsData.length) * 100}%`;
-    optionsContainer.innerHTML = '';
+    while(optionsContainer.firstChild) optionsContainer.removeChild(optionsContainer.firstChild);
     if (explanationBox) {
         explanationBox.classList.add('hidden');
-        explanationBox.innerHTML = '';
+        while(explanationBox.firstChild) explanationBox.removeChild(explanationBox.firstChild);
     }
     nextBtn.disabled = true;
 
@@ -797,7 +797,11 @@ function selectOption(index, btnSelected) {
 
     // Show explanation
     if (explanationBox) {
-        explanationBox.innerHTML = `<strong>Explanation:</strong> ${qt.explanation}`;
+        while(explanationBox.firstChild) explanationBox.removeChild(explanationBox.firstChild);
+        const explStrong = document.createElement('strong');
+        explStrong.textContent = 'Explanation: ';
+        explanationBox.appendChild(explStrong);
+        explanationBox.appendChild(document.createTextNode(qt.explanation));
         explanationBox.classList.remove('hidden');
     }
 
@@ -842,7 +846,7 @@ function showResults() {
 }
 
 function generateReview() {
-    reviewList.innerHTML = '';
+    while(reviewList.firstChild) reviewList.removeChild(reviewList.firstChild);
     questionsData.forEach((q, idx) => {
         const item = document.createElement('div');
         item.classList.add('review-item');
@@ -867,7 +871,10 @@ function generateReview() {
 
         const expl = document.createElement('div');
         expl.classList.add('review-explanation');
-        expl.innerHTML = `<strong>Explanation:</strong> ${q.explanation}`;
+        const explStrong = document.createElement('strong');
+        explStrong.textContent = 'Explanation: ';
+        expl.appendChild(explStrong);
+        expl.appendChild(document.createTextNode(q.explanation));
         item.appendChild(expl);
 
         reviewList.appendChild(item);
