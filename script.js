@@ -679,6 +679,63 @@ const questionsData = [
         ],
         correctAnswer: 2,
         explanation: "Mass transit moves many people simultaneously, heavily diluting the fuel cost per person."
+    },
+    
+    // Unit 6 Math Applications (61-65)
+    {
+        question: "61. A wind farm has 50 turbines, each with a capacity of 2.0 Megawatts (MW). If the wind farm operates at full capacity for 24 hours, how many Kilowatt-hours (kWh) of electrical energy are produced?",
+        options: [
+            "1.2 × 10^4 kWh",
+            "2.4 × 10^5 kWh",
+            "2.4 × 10^6 kWh",
+            "1.2 × 10^7 kWh"
+        ],
+        correctAnswer: 2,
+        explanation: "First, find the total power of the wind farm: 50 turbines × 2.0 MW/turbine = 100 MW. Next, convert Megawatts to Kilowatts: 100 MW × 1,000 kW/MW = 100,000 kW. Finally, multiply the power by the time to find energy in kWh: 100,000 kW × 24 hours = 2,400,000 kWh, which is written as 2.4 × 10^6 kWh in scientific notation."
+    },
+    {
+        question: "62. A coal-fired power plant generates 1 Gigawatt (1 × 10^9 Watts) of electricity. If the plant operates at exactly 33% efficiency, how much total thermal energy must be generated from burning coal to produce this 1 × 10^9 Watts of usable electrical power?",
+        options: [
+            "3.3 × 10^8 Watts",
+            "1.0 × 10^9 Watts",
+            "3.0 × 10^9 Watts",
+            "3.3 × 10^10 Watts"
+        ],
+        correctAnswer: 2,
+        explanation: "The formula for efficiency is: Efficiency = (Useful Energy Output) / (Total Energy Input). We rearrange this to solve for the input: Total Energy Input = (Useful Energy Output) / Efficiency. Therefore, we calculate: (1 × 10^9 Watts) / 0.33 ≈ 3 × 10^9 Watts. Since coal power plants are notoriously inefficient, roughly two-thirds of the energy generated is lost as waste heat."
+    },
+    {
+        question: "63. The United States consumes approximately 2.0 × 10^19 Joules of energy from natural gas annually. If 1 cubic foot of natural gas provides roughly 1.0 × 10^6 Joules of energy, how many cubic feet of natural gas does the US consume per year?",
+        options: [
+            "2.0 × 10^13 cubic feet",
+            "2.0 × 10^19 cubic feet",
+            "2.0 × 10^25 cubic feet",
+            "2.0 × 10^6 cubic feet"
+        ],
+        correctAnswer: 0,
+        explanation: "Set up a dimensional analysis to cancel the units of Joules and leave cubic feet: (2.0 × 10^19 Joules) × (1 cubic foot / 1.0 × 10^6 Joules). When dividing numbers in scientific notation, divide the coefficients (2.0 / 1.0 = 2.0) and subtract the exponents (10^19 / 10^6 = 10^(19-6) = 10^13). The result is 2.0 × 10^13 cubic feet."
+    },
+    {
+        question: "64. A household installs a solar array consisting of 20 panels. Each panel is capable of producing 250 Watts of power. If the panels receive an average of 5 hours of direct sunlight per day, how much electrical energy does the array generate in one day?",
+        options: [
+            "25 kWh",
+            "50 kWh",
+            "250 kWh",
+            "25,000 kWh"
+        ],
+        correctAnswer: 0,
+        explanation: "First, find the total power of the array in Watts: 20 panels × 250 W/panel = 5,000 W. Next, convert Watts to Kilowatts by dividing by 1,000: 5,000 W / 1,000 = 5 kW. Finally, calculate the energy produced per day: 5 kW × 5 hours = 25 kWh of energy generation per day."
+    },
+    {
+        question: "65. A typical passenger car gets 25 miles per gallon (mpg). If the driver drives 1.5 × 10^4 miles in a year, and gasoline contains approximately 1.2 × 10^5 BTUs per gallon, what is the total energy consumption of the car in BTUs for that year?",
+        options: [
+            "7.2 × 10^5 BTUs",
+            "1.8 × 10^7 BTUs",
+            "4.5 × 10^8 BTUs",
+            "7.2 × 10^7 BTUs"
+        ],
+        correctAnswer: 3,
+        explanation: "First, determine how many gallons of gas the car uses in a year: (1.5 × 10^4 miles) / (25 miles/gallon) = 15,000 miles / 25 = 600 gallons. Next, multiply the number of gallons by the energy per gallon: 600 gallons × (1.2 × 10^5 BTUs/gallon) = 720 × 10^5 BTUs. To write this in proper scientific notation, move the decimal point two places to the left: 7.2 × 10^7 BTUs."
     }
 ];
 
