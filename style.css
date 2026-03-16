@@ -163,6 +163,25 @@ main {
 }
 
 /* Quiz UI */
+.counters {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+.correct-count { color: var(--correct-text); }
+.incorrect-count { color: var(--incorrect-text); }
+
+#explanation-box {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8fafc;
+    border-left: 4px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    font-size: 0.95rem;
+    color: var(--text-main);
+    line-height: 1.5;
+    animation: fadeIn 0.4s forwards;
+}
+
 .progress-container {
     height: 8px;
     background: #e5e7eb;
@@ -215,7 +234,7 @@ main {
     line-height: 1.4;
 }
 
-.option-btn:hover {
+.option-btn:hover:not(:disabled) {
     border-color: var(--primary-light);
     background: #f8fafc;
 }
@@ -225,6 +244,23 @@ main {
     background: #f0fdf4;
     font-weight: 600;
     box-shadow: 0 0 0 1px var(--primary);
+}
+
+.option-btn:disabled {
+    cursor: default;
+}
+
+.option-btn.correct-choice, .option-btn.correct-choice:hover:disabled {
+    background: var(--correct-bg);
+    color: var(--correct-text);
+    border-color: var(--correct-border);
+    font-weight: 600;
+}
+
+.option-btn.incorrect-choice, .option-btn.incorrect-choice:hover:disabled {
+    background: var(--incorrect-bg);
+    color: var(--incorrect-text);
+    border-color: var(--incorrect-border);
 }
 
 /* Results UI */

@@ -34,12 +34,17 @@
                 </div>
                 <div class="question-header">
                     <span id="question-tracker">Question 1 / 60</span>
+                    <div class="counters">
+                        <span class="correct-count">Right: <span id="right-score">0</span></span> | 
+                        <span class="incorrect-count">Wrong: <span id="wrong-score">0</span></span>
+                    </div>
                 </div>
                 <div id="question-content">
                     <h3 id="question-text">Question goes here?</h3>
                     <div id="options-container">
                         <!-- Options injected dynamically by JS -->
                     </div>
+                    <div id="explanation-box" class="hidden"></div>
                 </div>
                 <div class="quiz-controls">
                     <button id="next-btn" class="primary-btn" disabled>Next Question</button>

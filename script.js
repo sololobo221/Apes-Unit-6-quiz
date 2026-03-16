@@ -685,6 +685,8 @@ const questionsData = [
 let currentQuestionIndex = 0;
 let score = 0;
 let userAnswers = [];
+let rightCount = 0;
+let wrongCount = 0;
 
 // DOM Elements
 const startScreen = document.getElementById('start-screen');
@@ -706,6 +708,9 @@ const scoreDisplay = document.getElementById('score-display');
 const scoreMessage = document.getElementById('score-message');
 const reviewContainer = document.getElementById('review-container');
 const reviewList = document.getElementById('review-list');
+const rightScoreEl = document.getElementById('right-score');
+const wrongScoreEl = document.getElementById('wrong-score');
+const explanationBox = document.getElementById('explanation-box');
 
 // Functions
 function shuffleArray(array) {
@@ -719,6 +724,10 @@ function initQuiz() {
     shuffleArray(questionsData);
     currentQuestionIndex = 0;
     score = 0;
+    rightCount = 0;
+    wrongCount = 0;
+    if (rightScoreEl) rightScoreEl.textContent = '0';
+    if (wrongScoreEl) wrongScoreEl.textContent = '0';
     userAnswers = new Array(questionsData.length).fill(null);
     reviewContainer.classList.add('hidden');
     startScreen.classList.remove('active');
@@ -734,6 +743,10 @@ function loadQuestion() {
     questionTracker.textContent = `Question ${currentQuestionIndex + 1} / ${questionsData.length}`;
     progressBar.style.width = `${((currentQuestionIndex) / questionsData.length) * 100}%`;
     optionsContainer.innerHTML = '';
+    if (explanationBox) {
+        explanationBox.classList.add('hidden');
+        explanationBox.innerHTML = '';
+    }
     nextBtn.disabled = true;
 
     if (currentQuestionIndex === questionsData.length - 1) {
@@ -755,10 +768,38 @@ function loadQuestion() {
 }
 
 function selectOption(index, btnSelected) {
-    const buttons = optionsContainer.querySelectorAll('.option-btn');
-    buttons.forEach(btn => btn.classList.remove('selected'));
-    btnSelected.classList.add('selected');
+    if (userAnswers[currentQuestionIndex] !== null) return; // Prevent multiple clicks
+
     userAnswers[currentQuestionIndex] = index;
+    const qt = questionsData[currentQuestionIndex];
+    const buttons = optionsContainer.querySelectorAll('.option-btn');
+
+    // Disable all buttons and highlight correct/incorrect
+    buttons.forEach((btn, i) => {
+        btn.disabled = true;
+        btn.style.cursor = 'default';
+        if (i === qt.correctAnswer) {
+             btn.classList.add('correct-choice');
+        } else if (i === index) {
+             btn.classList.add('incorrect-choice');
+        } else {
+             btn.style.opacity = '0.6';
+        }
+    });
+
+    if (index === qt.correctAnswer) {
+        rightCount++;
+        if (rightScoreEl) rightScoreEl.textContent = rightCount;
+    } else {
+        wrongCount++;
+        if (wrongScoreEl) wrongScoreEl.textContent = wrongCount;
+    }
+
+    // Show explanation
+    if (explanationBox) {
+        explanationBox.innerHTML = `<strong>Explanation:</strong> ${qt.explanation}`;
+        explanationBox.classList.remove('hidden');
+    }
 
     if (currentQuestionIndex === questionsData.length - 1) {
         submitBtn.disabled = false;
