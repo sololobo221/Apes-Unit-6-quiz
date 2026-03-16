@@ -731,8 +731,8 @@ function initQuiz() {
 function loadQuestion() {
     const qt = questionsData[currentQuestionIndex];
     questionText.textContent = qt.question;
-    questionTracker.textContent = \`Question \${currentQuestionIndex + 1} / \${questionsData.length}\`;
-    progressBar.style.width = \`\${((currentQuestionIndex) / questionsData.length) * 100}%\`;
+    questionTracker.textContent = `Question ${currentQuestionIndex + 1} / ${questionsData.length}`;
+    progressBar.style.width = `${((currentQuestionIndex) / questionsData.length) * 100}%`;
     optionsContainer.innerHTML = '';
     nextBtn.disabled = true;
 
@@ -789,7 +789,7 @@ function submitQuiz() {
 }
 
 function showResults() {
-    scoreDisplay.textContent = \`\${score} / \${questionsData.length}\`;
+    scoreDisplay.textContent = `${score} / ${questionsData.length}`;
     let percentage = (score / questionsData.length) * 100;
 
     if (percentage === 100) scoreMessage.textContent = "Perfect! You're completely ready for the APES exam.";
@@ -826,7 +826,7 @@ function generateReview() {
 
         const expl = document.createElement('div');
         expl.classList.add('review-explanation');
-        expl.innerHTML = \`<strong>Explanation:</strong> \${q.explanation}\`;
+        expl.innerHTML = `<strong>Explanation:</strong> ${q.explanation}`;
         item.appendChild(expl);
 
         reviewList.appendChild(item);
